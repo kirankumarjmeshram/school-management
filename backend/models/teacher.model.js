@@ -17,4 +17,4 @@ const teacherSchema = mongoose.Schema(
   }
 )
 
-module.exports = mongoose.model('Goal', teacherSchema)
+module.exports = mongoose.model('Teachers', teacherSchema)
