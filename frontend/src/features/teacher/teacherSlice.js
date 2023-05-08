@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import teacherService from './teacherService'
 
 const initialState = {
-  goals: [],
+  teachers: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -11,7 +11,7 @@ const initialState = {
 
 
 export const createTeacher = createAsyncThunk(
-  'goals/create',
+  'teachers/create',
   async (teacherData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
@@ -28,9 +28,9 @@ export const createTeacher = createAsyncThunk(
   }
 )
 
-// Get user goals
+// Get user teachers
 export const getTeachers = createAsyncThunk(
-  'goals/getAll',
+  'teachers/getAll',
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
@@ -47,9 +47,9 @@ export const getTeachers = createAsyncThunk(
   }
 )
 
-// Delete user goal
+// Delete user teacher
 export const deleteTeacher = createAsyncThunk(
-  'goals/delete',
+  'teachers/delete',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
@@ -67,7 +67,7 @@ export const deleteTeacher = createAsyncThunk(
 )
 
 export const teacherSlice = createSlice({
-  name: 'goal',
+  name: 'teacher',
   initialState,
   reducers: {
     reset: (state) => initialState,
@@ -80,7 +80,7 @@ export const teacherSlice = createSlice({
       .addCase(createTeacher.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals.push(action.payload)
+        state.teachers.push(action.payload)
       })
       .addCase(createTeacher.rejected, (state, action) => {
         state.isLoading = false
@@ -93,7 +93,7 @@ export const teacherSlice = createSlice({
       .addCase(getTeachers.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals = action.payload
+        state.teachers = action.payload
       })
       .addCase(getTeachers.rejected, (state, action) => {
         state.isLoading = false
@@ -106,8 +106,8 @@ export const teacherSlice = createSlice({
       .addCase(deleteTeacher.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals = state.goals.filter(
-          (goal) => goal._id !== action.payload.id
+        state.teachers = state.teachers.filter(
+          (teacher) => teacher._id !== action.payload.id
         )
       })
       .addCase(deleteTeacher.rejected, (state, action) => {

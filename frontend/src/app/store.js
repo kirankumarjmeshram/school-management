@@ -5,6 +5,6 @@ import teacherReducer from '../features/teacher/teacherSlice'
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    goals: teacherReducer,
+    teachers: teacherReducer,
   },
 })

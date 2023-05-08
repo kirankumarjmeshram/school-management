@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
+//import Navbar from './components/Navbar'
 // import AllAdmins from './components/AllAdmins'
 
 function App() {
@@ -12,7 +13,10 @@ function App() {
     <>
       <Router>
         <div className='container'>
+          <h1>World Hello</h1>
           <Header />
+          {/* <Navbar/> */}
+          <h1>Hello World</h1>
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/login' element={<Login />} />

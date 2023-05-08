@@ -10,8 +10,8 @@ function Dashboard() {
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const { goals, isError, message } = useSelector(
-    (state) => state.goals
+  const { teachers, isError, message } = useSelector(
+    (state) => state.teachers
   )
 
   useEffect(() => {
@@ -34,16 +34,17 @@ function Dashboard() {
   return (
     <>
       <section >
-        <h1>Admin </h1>
+        {/* <h1>{user?.user.name}</h1> */}
+        <h1>Admin</h1>
       </section>
       
       <TeacherForm />
 
       <section>
-        {goals.length > 0 ? (
+        {teachers.length > 0 ? (
           <div >
-            {goals.map((goal) => (
-              <TeacherItem key={goal._id} goal={goal} />
+            {teachers.map((teacher) => (
+              <TeacherItem key={teacher._id} teacher={teacher} />
             ))}
           </div>
         ) : (

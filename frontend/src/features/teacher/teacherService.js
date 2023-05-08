@@ -27,14 +27,14 @@ const getTeachers = async (token) => {
   return response.data
 }
 
-const deleteTeacher = async (goalId, token) => {
+const deleteTeacher = async (teacherId, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   }
 
-  const response = await axios.delete(API_URL + goalId, config)
+  const response = await axios.delete(API_URL + teacherId, config)
 
   return response.data
 }
