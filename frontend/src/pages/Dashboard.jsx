@@ -33,15 +33,15 @@ function Dashboard() {
 
   return (
     <>
-      <section className='heading'>
+      <section >
         <h1>Admin </h1>
       </section>
-
+      
       <TeacherForm />
 
-      <section className='content'>
+      <section>
         {goals.length > 0 ? (
-          <div className='goals'>
+          <div >
             {goals.map((goal) => (
               <TeacherItem key={goal._id} goal={goal} />
             ))}

@@ -8,7 +8,7 @@ const {
 } = require('../controllers/admin.controller')
 const { protect } = require('../middleware/authMiddleware')
 
-router.post('/', registerUser)
+router.post('/',registerUser)
 router.post('/login', loginUser)
 router.get('/me', protect, getMe)
 router.get('/all',getAllAdmins)

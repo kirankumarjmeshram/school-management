@@ -37,6 +37,11 @@ function Header() {
                  Register
               </Link>
             </li>
+            <li>
+              <Link to='/getAllAdmins'>
+                 All Admins
+              </Link>
+            </li>
           </>
         )}
       </ul>
